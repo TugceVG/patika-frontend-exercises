@@ -23,6 +23,10 @@ function App() {
 
   const onInputChange = (event) => {
     if (event.key === "Enter") {
+      if (list.some((item) =>
+        item.text.toLowerCase() === event.target.value.toLowerCase())) {
+        return alert("You can only add a new task");
+      }
       const todo = {
         text: event.target.value,
         className: "view",
